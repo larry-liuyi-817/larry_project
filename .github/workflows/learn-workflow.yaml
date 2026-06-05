@@ -52,3 +52,9 @@ jobs:
       - name: 步骤2 - 打印 GitHub 令牌状态
         run: |
           echo "GITHUB_TOKEN 是否存在：${{ secrets.GITHUB_TOKEN != '' }}"
+      - name: test my action
+        uses: ./.github/actions/show-json-action
+        with:
+          ak: "xxx"
+          sk: "xxx"
+          soc_version: "v900"
