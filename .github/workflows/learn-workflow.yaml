@@ -65,11 +65,11 @@ jobs:
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
-          ls -la .github/actions/show-json-action/  # 调试看action文件是否存在
+          ls -la .github/actions/read-soc-json/  # 调试看action文件是否存在
     
       # ✅ 最后才调用本地action
       - name: test my action
-        uses: ./.github/actions/show-json-action
+        uses: ./.github/actions/read-soc-json
         with:
           ak: "xxx"
           sk: "xxx"
