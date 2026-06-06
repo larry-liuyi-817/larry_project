@@ -52,6 +52,13 @@ jobs:
       - name: 步骤2 - 打印 GitHub 令牌状态
         run: |
           echo "GITHUB_TOKEN 是否存在：${{ secrets.GITHUB_TOKEN != '' }}"
+      - name: 下载代码
+        uses: actions/checkout@v6
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+      - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+      - name: List files in the repository
+        run: |
+          ls ${{ github.workspace }}
       - name: test my action
         uses: ./.github/actions/show-json-action
         with:
