@@ -44,21 +44,30 @@ jobs:
     runs-on: ubuntu-latest
     needs: []
     steps:
+      # ✅ 必须第一个 step！没有之一！
+      - name: 下载代码
+        uses: actions/checkout@v6
+    
+      # 后面才能放其他步骤
       - name: 步骤1 - 打印时间与路径
         run: |
           echo "当前时间：$(date)"
           echo "当前路径：$PWD"
           echo "HOME 目录：$HOME"
+    
       - name: 步骤2 - 打印 GitHub 令牌状态
         run: |
           echo "GITHUB_TOKEN 是否存在：${{ secrets.GITHUB_TOKEN != '' }}"
-      - name: 下载代码
-        uses: actions/checkout@v6
-      - run: echo "💡 The ${{ github.repository }} repository has been cloned to the runner."
+    
+      - run: echo "💡 The ${{ github.repository }} repository has been cloned."
       - run: echo "🖥️ The workflow is now ready to test your code on the runner."
+    
       - name: List files in the repository
         run: |
           ls ${{ github.workspace }}
+          ls -la .github/actions/show-json-action/  # 调试看action文件是否存在
+    
+      # ✅ 最后才调用本地action
       - name: test my action
         uses: ./.github/actions/show-json-action
         with:
