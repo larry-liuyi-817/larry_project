@@ -1,0 +1,18 @@
+name: 'Read JSON By SOC Version'
+description: 'Input ak/sk/soc_version, read corresponding JSON file and print content'
+author: 'Your Name'
+
+inputs:
+  ak:
+    description: 'Access Key'
+    required: true
+  sk:
+    description: 'Secret Key'
+    required: true
+  soc_version:
+    description: 'SOC version, match JSON file name'
+    required: true
+
+runs:
+  using: 'node16'
+  main: 'dist/index.js'

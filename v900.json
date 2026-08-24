@@ -1,0 +1,12 @@
+{
+  "name": "测试数据",
+  "version": "1.0.0",
+  "author": "开发者",
+  "isActive": true,
+  "count": 100,
+  "tags": ["简单", "JSON", "示例"],
+  "info": {
+    "description": "这是一份简单的JSON示例",
+    "language": "中文"
+  }
+}
